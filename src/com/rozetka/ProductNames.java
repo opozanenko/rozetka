@@ -1,5 +1,6 @@
 package com.rozetka;
 
+import lombok.Data;
 import lombok.Getter;
 
 /*

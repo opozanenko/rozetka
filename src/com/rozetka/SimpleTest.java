@@ -1,15 +1,20 @@
 package com.rozetka;
 
+
+import com.sun.org.glassfish.gmbal.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import lombok.val;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.CollectionCondition.*;
 
-/*
-    This class contains test which searches for an item and checks results
- */
+@Epic("Positive Tests")
+@Feature("Search Tests")
+@Description("Test Description: Searches for an item and checks results")
 public class SimpleTest {
 
     @BeforeMethod
@@ -29,6 +34,17 @@ public class SimpleTest {
 
         //checks is the first search result contains Samsung Galaxy M30s
         results.getResult(0).shouldHave(text("Samsung Galaxy M30s"));
+
+        val phone = results
+                .getResult(0)
+                .getText()
+                .split("\n")[0];
+
+        assertThat(phone)
+                .as("Incorrect Phone Name")
+                .contains("Samsung");
+
+        results.openItemDetailsPage(phone);
     }
 
 }
