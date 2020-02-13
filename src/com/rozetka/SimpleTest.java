@@ -1,5 +1,6 @@
 package com.rozetka;
 
+import lombok.val;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,9 +20,9 @@ public class SimpleTest {
     @Test
     public void searchSamsung() {
 
-        new RozetkaPage().searchFor(ProductNames.SAMSUNG);
+        new RozetkaPage().searchItem(ProductNames.SAMSUNG);
 
-        SearchResultsPage results = new SearchResultsPage();
+        val results = new SearchResultsPage();
 
         //checks are there a grid with 32 elements
         results.getResults().shouldHave(size(32));
