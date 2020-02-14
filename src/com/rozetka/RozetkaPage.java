@@ -14,6 +14,7 @@ public class RozetkaPage {
 
     @Step("Launch Rozetka App")
     public void launchApp() {
+        //TODO val or xpath
         open(ROZETKA_HOME_PAGE);
     }
 
