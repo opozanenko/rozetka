@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
   	<classes>
-        <class name="com.rozetka.SimpleTest"> </class>
+        <class name="com.rozetka.tests.SimpleTest"> </class>
   	</classes>
   </test> <!-- Test1 -->
 </suite> <!-- Suite -->

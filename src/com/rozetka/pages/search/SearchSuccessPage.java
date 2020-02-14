@@ -1,4 +1,4 @@
-package com.rozetka;
+package com.rozetka.pages.search;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 import static java.lang.String.format;
 
-public class SearchResultsPage {
+public class SearchSuccessPage {
     private ElementsCollection results = $$x("//div[@class='g-i-tile g-i-tile-catalog']");
 
     public SelenideElement getResult(int index) {

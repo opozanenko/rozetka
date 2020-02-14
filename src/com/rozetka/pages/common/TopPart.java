@@ -1,6 +1,13 @@
-package com.rozetka.pages;
+package com.rozetka.pages.common;
 
 import com.codeborne.selenide.SelenideElement;
+import com.rozetka.data.ApplicationStatus;
+import com.rozetka.data.IProduct;
+import com.rozetka.data.IUser;
+import com.rozetka.pages.HomePage;
+import com.rozetka.pages.account.LoginPage;
+import com.rozetka.pages.search.SearchSuccessPage;
+import com.rozetka.pages.search.SearchUnsuccessPage;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -29,6 +36,8 @@ public abstract class TopPart {
             $x("//a[@class='header-actions__button header-actions__button_type_wish']");
     private SelenideElement cartButton =
             $x("//a[@class='header-actions__button header-actions__button_type_basket']");
+    //
+    private AccountGuest accountGuest;
 
     // Page Object
 
@@ -48,6 +57,7 @@ public abstract class TopPart {
 
     public Contacts clickContacts() {
         contacts.click();
+
         return new Contacts();
     }
 
@@ -158,6 +168,66 @@ public abstract class TopPart {
 
     public void clickCartButton() {
         cartButton.click();
+    }
+
+    // accountGuest
+    private void clickAccountGuestRegister() {
+        accountGuest.clickRegister();
+    }
+
+    private void clickAccountGuestLogin() {
+        accountGuest.clickLogin();
+    }
+
+    // Functional
+
+    // account
+    protected void openAccount() {
+        clickAccount();
+    }
+
+    // searchTopField
+    private void fillSearchTopField(String searchText) {
+        clickSearchTopField();
+        clearSearchTopField();
+        setSearchTopField(searchText);
+    }
+
+    protected void defaultLogin(IUser user) {
+        if (!ApplicationStatus.get().isLogged()) {
+            new LoginPage()
+                    .fillLogin(user);
+        } else {
+            // TODO throw Custom Exception
+        }
+    }
+
+    // Business Logic
+
+    public HomePage gotoHomePage() {
+        clickLogo();
+
+        return new HomePage();
+    }
+
+    public SearchSuccessPage successfulSearch(IProduct product) {
+        fillSearchTopField(product.getName());
+        clickSearchTopButton();
+
+        return new SearchSuccessPage();
+    }
+
+    public SearchUnsuccessPage unsuccessfulSearch(IProduct product) {
+        fillSearchTopField(product.getName());
+        clickSearchTopButton();
+
+        return new SearchUnsuccessPage();
+    }
+
+    public LoginPage gotoLoginPage() {
+        openAccount();
+
+        return new LoginPage();
     }
 
 }

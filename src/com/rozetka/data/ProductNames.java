@@ -1,4 +1,4 @@
-package com.rozetka;
+package com.rozetka.data;
 
 import lombok.Data;
 import lombok.Getter;

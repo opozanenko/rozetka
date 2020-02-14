@@ -1,6 +1,9 @@
-package com.rozetka;
+package com.rozetka.tests;
 
 
+import com.rozetka.data.ProductNames;
+import com.rozetka.pages.common.RozetkaPage;
+import com.rozetka.pages.search.SearchSuccessPage;
 import com.sun.org.glassfish.gmbal.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -27,7 +30,7 @@ public class SimpleTest {
 
         new RozetkaPage().searchItem(ProductNames.SAMSUNG);
 
-        val results = new SearchResultsPage();
+        val results = new SearchSuccessPage();
 
         //checks are there a grid with 32 elements
         results.getResults().shouldHave(size(32));

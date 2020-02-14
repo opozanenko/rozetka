@@ -1,6 +1,8 @@
-package com.rozetka;
+package com.rozetka.pages.common;
 
 import com.codeborne.selenide.SelenideElement;
+import com.rozetka.data.ProductNames;
+import com.rozetka.pages.search.SearchSuccessPage;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -19,12 +21,12 @@ public class RozetkaPage {
     }
 
     @Step("Search for Samsung")
-    public SearchResultsPage searchItem(ProductNames item) {
+    public SearchSuccessPage searchItem(ProductNames item) {
         searchField
                 .val(valueOf(item))
                 .pressEnter();
 
-        return new SearchResultsPage();
+        return new SearchSuccessPage();
     }
 
 }
