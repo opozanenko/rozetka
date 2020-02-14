@@ -1,9 +1,11 @@
 package com.rozetka.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
 
+@Getter
 public abstract class TopPart {
     //TODO component
     protected final String ACTIVE_LANGUAGE_XPATH = "//span[@class='header-topline__language-item_state_active']";
@@ -31,190 +33,131 @@ public abstract class TopPart {
     // Page Object
 
     // phone
-    public SelenideElement getPhone() {
-        return phone;
-    }
-
     public String getPhoneText() {
-        return getPhone().getText();
+        return phone.getText();
     }
 
     public void clickPhone() {
-        getPhone().click();
+        phone.click();
     }
 
     // contacts
-    public SelenideElement getContacts() {
-        return contacts;
-    }
-
     public String getContactsText() {
-        return getContacts().getText();
+        return contacts.getText();
     }
 
-    public void clickContacts() {
-        getContacts().click();
+    public Contacts clickContacts() {
+        contacts.click();
+        return new Contacts();
     }
 
     // languageUA
-    public SelenideElement getLanguageUA() {
-        return languageUA;
-    }
-
     public String getLanguageUAText() {
-        return getLanguageUA().getText();
+        return languageUA.getText();
     }
 
     public void clickLanguageUA() {
-        getLanguageUA().click();
+        languageUA.click();
     }
 
     // languageRU
-    public SelenideElement getLanguageRU() {
-        return languageRU;
-    }
-
     public String getLanguageRUText() {
-        return getLanguageRU().getText();
+        return languageRU.getText();
     }
 
     public void clickLanguageRU() {
-        getLanguageRU().click();
+        languageRU.click();
     }
 
     // city
-    public SelenideElement getCity() {
-        return city;
-    }
-
     public String getCityText() {
-        return getCity().getText();
+        return city.getText();
     }
 
     public void clickCity() {
-        getCity().click();
+        city.click();
     }
 
     // account
-    public SelenideElement getAccount() {
-        return account;
-    }
-
     public String getAccountText() {
-        return getAccount().getText();
+        return account.getText();
     }
 
     public void clickAccount() {
-        getAccount().click();
+        account.click();
     }
 
     // logo
-    public SelenideElement getLogo() {
-        return logo;
-    }
-
     public void clickLogo() {
-        getLogo().click();
+        logo.click();
     }
 
     // catalog
-    public SelenideElement getCatalog() {
-        return catalog;
-    }
-
     public String getCatalogText() {
-        return getCatalog().getText();
+        return catalog.getText();
     }
 
     public void clickCatalog() {
-        getCatalog().click();
+        catalog.click();
     }
 
     // searchTopField
-    public SelenideElement getSearchTopField() {
-        return searchTopField;
-    }
-
     public void clearSearchTopField() {
-        getSearchTopField().clear();
+        searchTopField.clear();
     }
 
     public void clickSearchTopField() {
-        getSearchTopField().click();
+        searchTopField.click();
     }
 
     public void setSearchTopField(String text) {
-        getSearchTopField().sendKeys(text);
+        searchTopField.sendKeys(text);
     }
 
     // searchMicrophoneButton
-    public SelenideElement getMicrophoneButton() {
-        return searchMicrophoneButton;
-    }
-
-    public void clickMicrophoneButton() {
-        getMicrophoneButton().click();
+    public void clickSearchMicrophoneButton() {
+        searchMicrophoneButton.click();
     }
 
     // searchTopButton
-    public SelenideElement getSearchTopButton() {
-        return searchTopButton;
-    }
-
     public void clickSearchTopButton() {
-        getSearchTopButton().click();
+        searchTopButton.click();
     }
 
     // premiumButton
-    public SelenideElement getPremiumButton() {
-        return premiumButton;
-    }
-
     public String getPremiumButtonText() {
-        return getPremiumButton().getText();
+        return premiumButton.getText();
     }
 
     public void clickPremiumButton() {
-        getPremiumButton().click();
+        premiumButton.click();
     }
 
     // compareButton
-    public SelenideElement getCompareButton() {
-        return compareButton;
-    }
-
     public String getCompareButtonText() {
-        return getCompareButton().getText();
+        return compareButton.getText();
     }
 
     public void clickCompareButton() {
-        getCompareButton().click();
+        compareButton.click();
     }
 
     // wishList
-    public SelenideElement getWishList() {
-        return wishList;
-    }
-
     public String getWishListText() {
-        return getWishList().getText();
+        return wishList.getText();
     }
 
     public void clickWishList() {
-        getWishList().click();
+        wishList.click();
     }
 
     // cartButton
-    public SelenideElement getCartButton() {
-        return cartButton;
-    }
-
     public String getCartButtonText() {
-        return getCartButton().getText();
+        return cartButton.getText();
     }
 
     public void clickCartButton() {
-        getCartButton().click();
+        cartButton.click();
     }
 
 }
