@@ -5,7 +5,7 @@ import com.rozetka.data.ApplicationStatus;
 import com.rozetka.data.IProduct;
 import com.rozetka.data.IUser;
 import com.rozetka.pages.HomePage;
-import com.rozetka.pages.account.LoginPage;
+import com.rozetka.pages.account.LoginPopUp;
 import com.rozetka.pages.search.SearchSuccessPage;
 import com.rozetka.pages.search.SearchUnsuccessPage;
 import lombok.Getter;
@@ -195,7 +195,7 @@ public abstract class TopPart {
 
     protected void defaultLogin(IUser user) {
         if (!ApplicationStatus.get().isLogged()) {
-            new LoginPage()
+            new LoginPopUp()
                     .fillLogin(user);
         } else {
             // TODO throw Custom Exception
@@ -224,10 +224,11 @@ public abstract class TopPart {
         return new SearchUnsuccessPage();
     }
 
-    public LoginPage gotoLoginPage() {
+    //TODO LoginPage
+    public LoginPopUp gotoLoginPage() {
         openAccount();
 
-        return new LoginPage();
+        return new LoginPopUp();
     }
 
 }

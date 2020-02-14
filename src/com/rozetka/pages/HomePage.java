@@ -1,4 +1,6 @@
 package com.rozetka.pages;
 
-public class HomePage {
+import com.rozetka.pages.common.TopPart;
+
+public class HomePage extends TopPart {
 }

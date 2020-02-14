@@ -8,7 +8,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
-public class LoginPage extends TopPart {
+public class LoginPopUp extends TopPart {
 
     private SelenideElement email = $x("//input[@id='auth_email']");
     private SelenideElement password = $x("//input[@id='auth_pass']");
@@ -39,8 +39,8 @@ public class LoginPage extends TopPart {
         password.click();
     }
 
-    public void setPassword(String password) {
-        password.sendKeys(password);
+    public void setPassword(String text) {
+        password.sendKeys();
     }
 
     // loginButton
@@ -70,14 +70,16 @@ public class LoginPage extends TopPart {
 
     // Business Logic
 
-    public AccountPage successfulLogin(IUser validUser) {
+    public LoggedUserPage successfulLogin(IUser validUser) {
         fillLogin(validUser);
-        return new AccountPage();
+
+        return new LoggedUserPage();
     }
 
-    public UnsuccessfulLoginPage unsuccessfulLogin(IUser invalidUser) {
-        fillLogin(invalidUser);
-        return new UnsuccessfulLoginPage();
-    }
+//    public UnsuccessfulLoginPage unsuccessfulLogin(IUser invalidUser) {
+//        fillLogin(invalidUser);
+//
+//        return new UnsuccessfulLoginPage();
+//    }
 
 }
