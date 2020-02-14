@@ -1,7 +1,5 @@
 package com.rozetka.data;
 
-import lombok.ToString;
-
 interface IEmail {
     IPassword setEmail(String email);
 }
@@ -17,7 +15,6 @@ interface IBuildUser {
     IUser build();
 }
 
-@ToString
 public final class User
         implements IEmail, IPassword, IBuildUser, IUser {
 
