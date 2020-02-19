@@ -40,7 +40,7 @@ public class LoginPopUp extends TopPart {
     }
 
     public void setPassword(String text) {
-        password.sendKeys();
+        password.sendKeys(text);
     }
 
     // loginButton

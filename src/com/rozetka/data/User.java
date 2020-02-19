@@ -9,8 +9,8 @@ interface IPassword {
 }
 
 interface IBuildUser {
-//    IBuildUser setEmail(String email);
-//    IBuildUser setPassword(String password);
+    IPassword setEmail(String email);
+    IBuildUser setPassword(String password);
 
     IUser build();
 }
@@ -18,9 +18,14 @@ interface IBuildUser {
 public final class User
         implements IEmail, IPassword, IBuildUser, IUser {
 
+    public final static String EMPTY_STRING = "";
     private String email;
     private String password;
 
+    private User() {
+        this.email = EMPTY_STRING;
+        this.password = EMPTY_STRING;
+    }
 
     public static IEmail get() {
         return new User();
@@ -28,11 +33,15 @@ public final class User
 
     @Override
     public IPassword setEmail(String email) {
+        this.email = email;
+
         return this;
     }
 
     @Override
     public IBuildUser setPassword(String password) {
+        this.password = password;
+
         return this;
     }
 

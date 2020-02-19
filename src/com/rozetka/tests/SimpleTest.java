@@ -1,6 +1,5 @@
 package com.rozetka.tests;
 
-
 import com.rozetka.data.ProductNames;
 import com.rozetka.pages.common.RozetkaPage;
 import com.rozetka.pages.search.SearchSuccessPage;
@@ -48,6 +47,7 @@ public class SimpleTest {
                 .contains("Samsung");
 
         results.openItemDetailsPage(phone);
+
     }
 
 }

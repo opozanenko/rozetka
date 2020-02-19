@@ -182,7 +182,7 @@ public abstract class TopPart {
     // Functional
 
     // account
-    protected void openAccount() {
+    public void openAccount() {
         clickAccount();
     }
 
